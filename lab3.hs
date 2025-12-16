@@ -1,6 +1,3 @@
--- Програма обробки тексту підручника з програмування
--- Знаходження унікальних слів заданої довжини у запитаннях
--- ВИПРАВЛЕНА ВЕРСІЯ
 
 import Data.Char (isAlpha, isSpace, toLower, isAlphaNum)
 import Data.List (nub, sort, group)
@@ -258,34 +255,3 @@ main = do
                             printStatistics text
                 _ -> putStrLn " Помилка: введіть коректне число!"
 
--- ============================================================================
--- ТЕСТОВИЙ ПРИКЛАД
--- ============================================================================
-
-testExample :: IO ()
-testExample = do
-    putStrLn "\n╔════════════════════════════════════════════════════════╗"
-    putStrLn "║             ТЕСТОВИЙ ПРИКЛАД                          ║"
-    putStrLn "╚════════════════════════════════════════════════════════╝"
-
-    let testText = "Що таке Haskell? Haskell це функціональна мова програмування. \
-                   \Чи підтримує Haskell ліниві обчислення? Так підтримує. \
-                   \Які переваги має Haskell над іншими мовами? \
-                   \Haskell має строгу типізацію та багато інших переваг."
-
-    putStrLn $ "\nТекст:\n" ++ testText ++ "\n"
-
-    putStrLn "=== Результати для довжини 4 ==="
-    let results4 = findUniqueWordsInQuestions testText 4
-    printResults results4 4
-
-    putStrLn "\n=== Результати для довжини 6 ==="
-    let results6 = findUniqueWordsInQuestions testText 6
-    printResults results6 6
-
-    putStrLn "\n=== Результати для довжини 7 ==="
-    let results7 = findUniqueWordsInQuestions testText 7
-    printResults results7 7
-
-    printStatistics testText
-    putStrLn "\n✓ Тест завершено!"
